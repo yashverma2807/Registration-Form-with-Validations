@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+}
+/* Navbar */
+.nav{
+    background-image: linear-gradient(to right,rgb(36, 233, 216), rgb(118, 50, 237));
+    color: white;
+    height: 6vh;
+}
+.nav h3{
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    padding: 10px;
+    font-size: larger;
+    /* margin-left: 45%; */
+}
+/* Form */
+.container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: normal;
+    line-height: 1.7;
+}
+
+/* button */
+form .button input{
+    border: none;
+    height: 30px;
+    width: 50%;
+    cursor: pointer;
+    border-radius: 50px;
+    background: linear-gradient(-135deg, rgb(36, 233, 216), rgb(118, 50, 237));
+    color: white;
+}
+
+form .button input:hover{
+    color: black;
+}
+
+
+

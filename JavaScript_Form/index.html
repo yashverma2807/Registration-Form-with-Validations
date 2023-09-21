@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Validations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NavBar -->
+    <div class="nav">
+        <nav>
+            <h3>Registration Form</h3>
+        </nav>
+    </div>
+    <!-- Form -->
+    <div class="container">
+        <form method="get" id="registrationForm">
+            <!-- First Name -->
+            <div class="fname">
+                <label for="fname">First Name:</label>
+                <input type="text" placeholder="Enter your First Name" id="fname" required maxlength="16"
+                    autocomplete="off" onkeydown="if(event.keyCode === 32) return false;">
+                <div id="first-name-err"></div><br>
+            </div>
+
+            <!-- Last Name -->
+            <div class="lname">
+                <label for="lname">Last Name:</label>
+                <input type="text" placeholder="Enter your First Name" id="lname" required maxlength="16"
+                    autocomplete="off" onkeydown="if(event.keyCode === 32) return false;">
+                <div id="last-name-err"></div><br>
+            </div>
+
+            <!-- Gender -->
+            <div class="gender">
+                <label for="gender">Gender:</label>
+                <input type="radio" name="gender" value="male" required>Male &nbsp;
+                <input type="radio" name="gender" value="female" required>Female &nbsp;
+                <input type="radio" name="gender" value="not-specified" required>Prefer Not to Say<br>
+                <div id="gendererr"></div><br>
+            </div>
+            
+            <!-- Email -->
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Enter your Email Address" id="email" required autocomplete="off"
+                    onkeydown="if(event.keyCode === 32) return false;">
+                <div id="emailerr"></div><br>
+            </div>
+
+            <!-- Address -->
+            <div class="address">
+                <label for="address">Address:</label>
+                <textarea name="address" id="address" cols="20" rows="4" placeholder="Enter Address here" required
+                    autocomplete="off"></textarea>
+                <div id="addresserr"></div><br>
+            </div>
+
+            <!-- Date Of Birth -->
+            <div class="date">
+                <label for="DateofBirth">Date of Birth:</label>
+                <!-- <input type="text" placeholder="Enter your DOB" id="date" required> -->
+                <input type="date" name="date" id="date" max="2023-03-28" required>
+                <div id="dateerr"></div><br>
+            </div><br>
+
+            <!-- Country -->
+            <div class="country">
+                <label for="country">Nationality:</label>
+                <select name="Country" id="dropdownlist">
+                    <option value="#">Select Country</option>
+                    <option value="India">India(+91)</option>
+                    <option value="China">China(+86)</option>
+                    <option value="USA">USA(+1)</option>
+                </select>
+            </div><br>
+
+            <!-- Phone -->
+            <div class="phone">
+                <label for="phone">Phone:</label>
+                <select name="code" id="code">
+                    <option value="india">🇮🇳(+91)</option>
+                    <option value="china">🇨🇳(+86)</option>
+                    <option value="usa">🇺🇸(+1)</option>
+                </select>
+                <input type="tel" name="phone_number" placeholder="Enter Phone number" id="phone" pattern="\d*" maxlength="10" required autocomplete="off">
+                <div id="phonenumbererr"></div><br>
+            </div>
+
+            <!-- Password -->
+            <div class="password">
+                <label for="password">Password:</label>
+                <input type="password" placeholder="Enter your Password" id="password" required
+                    onkeydown="if(event.keyCode === 32) return false;"><br>
+                <input type="checkbox" onclick="showPassword()">Show Password
+                <div id="passworderr"></div><br>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="cpassword">
+                <label for="password">Confirm Password:</label>
+                <input type="password" placeholder="Confirm your Password" id="cpassword" required
+                    onkeydown="if(event.keyCode === 32) return false;">
+                <div id="confirmpassworderr"></div><br>
+            </div>
+
+            <!-- Register Button -->
+            <div class="button">
+                <input type="submit" value="Register" id="Register">
+            </div>
+        </form>
+        <script>
+                const genderRadios = document.querySelectorAll('input[name="gender"]');
+                const genderErr = document.getElementById('gendererr');
+                
+                function checkGender() {
+                    for (let i = 0; i < genderRadios.length; i++) {
+                        if (genderRadios[i].checked) {
+                            genderErr.textContent = '';
+                            return true;
+                        }
+                    }
+                    genderErr.textContent = 'Please select a gender.';
+                    return false;
+                }
+                
+                document.querySelector('form').addEventListener('submit', checkGender);
+        </script>
+        <script src="script.js"></script>
+</body>
+
+</html>
